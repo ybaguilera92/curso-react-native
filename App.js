@@ -8,40 +8,91 @@ import {
   Button,
   Alert,
   TouchableOpacity,
+  ScrollView,
+  FlatList,
 } from "react-native";
 import { homeStyles } from "./styles/HomeStyle";
+import { data } from "./config/app";
 
 export default function App() {
+  const renderItem = ({ item }) => {
+    <View style={homeStyles.card}>
+      <View style={homeStyles.cardConte}>
+        <Text>{item.name}</Text>
+        <Text>{item.description}</Text>
+      </View>
+    </View>;
+  };
   return (
     <View style={homeStyles.container}>
-      {/* <ImageBackground
-        resizeMode="cover"
-        source={require("./assets/expo.png")}
-        style={homeStyles.image}
-      > */}
-      <View>
-        <Text style={homeStyles.title}>Bienvenido</Text>
-      </View>
-      <Text>Hola mundo2</Text>
-      {/* <Image source={{uri:}}  /> */}
-      <Image
-        source={require("./assets/expo.png")}
-        style={homeStyles.image}
-        resizeMode="contain"
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={homeStyles.list}
       />
-      <Button
-        title="Aceptar"
-        color="red"
-        onPress={() => Alert.alert("Hola", "Ocurrio un error")}
-      />
-      <TouchableOpacity
-        style={homeStyles.bton}
-        onPress={() => Alert.alert("Hola", "Presionas un boton personalizado")}
-      >
-        <Text style={homeStyles.textButton}>Boton Personalizado</Text>
-      </TouchableOpacity>
-      {/* </ImageBackground> */}
     </View>
+    // <ScrollView>
+    //   <View style={homeStyles.container}>
+    //     {/* <ImageBackground
+    //     resizeMode="cover"
+    //     source={require("./assets/expo.png")}
+    //     style={homeStyles.image}
+    //   > */}
+    //     <View>
+    //       <Text style={homeStyles.title}>Bienvenido</Text>
+    //     </View>
+    //     <Text>Hola mundo2</Text>
+    //     {/* <Image source={{uri:}}  /> */}
+    //     <Image
+    //       source={require("./assets/expo.png")}
+    //       style={homeStyles.image}
+    //       resizeMode="contain"
+    //     />
+    //     <Button
+    //       title="Aceptar"
+    //       color="red"
+    //       onPress={() => Alert.alert("Hola", "Ocurrio un error")}
+    //     />
+    //     <TouchableOpacity
+    //       style={homeStyles.bton}
+    //       onPress={() =>
+    //         Alert.alert("Hola", "Presionas un boton personalizado")
+    //       }
+    //     >
+    //       <Text style={homeStyles.textButton}>Boton Personalizado</Text>
+    //     </TouchableOpacity>
+    //     <Text>
+    //       Un texto es una composición de signos codificados en un sistema de
+    //       escritura que forma una unidad de sentido. También es una composición
+    //       de caracteres imprimibles generados por un algoritmo de cifrado que,
+    //       aunque no tienen sentido para cualquier persona, sí puede ser
+    //       descifrado por su destinatario original.
+    //     </Text>
+    //     <Text>
+    //       Un texto es una composición de signos codificados en un sistema de
+    //       escritura que forma una unidad de sentido. También es una composición
+    //       de caracteres imprimibles generados por un algoritmo de cifrado que,
+    //       aunque no tienen sentido para cualquier persona, sí puede ser
+    //       descifrado por su destinatario original.
+    //     </Text>
+    //     <Text>
+    //       Un texto es una composición de signos codificados en un sistema de
+    //       escritura que forma una unidad de sentido. También es una composición
+    //       de caracteres imprimibles generados por un algoritmo de cifrado que,
+    //       aunque no tienen sentido para cualquier persona, sí puede ser
+    //       descifrado por su destinatario original.
+    //     </Text>
+    //     <Text>
+    //       Un texto es una composición de signos codificados en un sistema de
+    //       escritura que forma una unidad de sentido. También es una composición
+    //       de caracteres imprimibles generados por un algoritmo de cifrado que,
+    //       aunque no tienen sentido para cualquier persona, sí puede ser
+    //       descifrado por su destinatario original.
+    //     </Text>
+    //     {/* </ImageBackground> */}
+    //   </View>
+    // </ScrollView>
   );
 }
 

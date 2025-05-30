@@ -4,13 +4,17 @@ export const homeStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
+    paddingTop: 20,
   },
   title: {
     fontWeight: "700",
     color: "blue",
     fontSize: 32,
+  },
+  list: {
+    paddingHorizontal: 10,
   },
   image: {
     width: "80%",
@@ -27,5 +31,11 @@ export const homeStyles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontStyle: "italic",
+  },
+  cardConte: {
+    padding: 15,
+  },
+  card: {
+    backgroundColor: "red",
   },
 });
