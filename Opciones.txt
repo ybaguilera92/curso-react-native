@@ -1,0 +1,8 @@
+npx create-expo-app@latest --template
+
+npm install -g @expo/cli
+npm install
+npm install -g eas-cli
+eas build:configure
+eas build --platform android
+eas build --platform android --profile production
